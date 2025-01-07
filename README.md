@@ -1,6 +1,6 @@
 # Retrieval-Enhanced Mutation Mastery: Augmenting Zero-Shot Prediction of Protein Language Model
 
-## 🚀 Introduction (ProREM)
+## 🚀 Introduction (Venus-ProREM/ ProREM)
 
 <img src="img/framework.png" alt="framework">
 
