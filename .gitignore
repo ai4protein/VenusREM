@@ -175,7 +175,9 @@ data/proteingym_v1/process.ipynb
 data/proteingym_v1/DMS_ProteinGym_substitutions_pdbs
 data/proteingym_v1/*.json
 data/*.ipynb
+data/*.fasta
 data/case
+data/uniprot_taxon
 data/my_proteins
 
 data/proteingym_v1/aa_seq_aln_a2m.tar.gz

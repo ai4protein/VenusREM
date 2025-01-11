@@ -1,4 +1,4 @@
-name: protrem
+name: venusrem
 channels:
   - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
   - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
@@ -123,4 +123,4 @@ dependencies:
       - xyzservices==2024.9.0
       - yarl==1.17.1
       - zipp==3.21.0
-prefix: /home/tanyang/miniconda3/envs/protrem
+prefix: /home/tanyang/miniconda3/envs/venusrem
