@@ -1,6 +1,6 @@
 # Retrieval-Enhanced Mutation Mastery: Augmenting Zero-Shot Prediction of Protein Language Model
 
-## 🚀 Introduction (VenusREM/ ProREM)
+## 🚀 Introduction (VenusREM)
 
 <img src="img/framework.png" alt="framework">
 
@@ -8,7 +8,7 @@
 
 ### News
 
-- [2024.10.21] 
+- [2025.04.09] Congratulations! Our paper was accepted by *ISMB/ECCB 2025*! See you in Liverpool, England.
 
 ### Downloads
 
