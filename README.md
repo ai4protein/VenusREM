@@ -12,8 +12,8 @@
 
 ### Downloads
 
-- ProteinGym a2m homology sequences (EVCouplings): https://huggingface.co/datasets/tyang816/VenusREM/blob/main/aa_seq_aln_a2m.tar.gz. The original a2m files are downloaded at [ProteinGym](https://github.com/OATML-Markslab/ProteinGym).
-- ProteinGym a3m homology sequences (ColabFold): https://huggingface.co/datasets/tyang816/VenusREM/blob/main/aa_seq_aln_a3m.tar.gz
+- ProteinGym a2m homology sequences (EVCouplings): https://huggingface.co/datasets/ai4protein/VenusREM/blob/main/aa_seq_aln_a2m.tar.gz. The original a2m files are downloaded at [ProteinGym](https://github.com/OATML-Markslab/ProteinGym).
+- ProteinGym a3m homology sequences (ColabFold): https://huggingface.co/datasets/ai4protein/VenusREM/blob/main/aa_seq_aln_a3m.tar.gz
 - Uniref 100 database: https://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref100/uniref100.fasta.gz
 
 ### Paper Results
@@ -56,7 +56,7 @@ make all-openmp
 #### Prepare for the processed data
 ```shell
 cd data/proteingym_v1
-wget https://huggingface.co/datasets/tyang816/VenusREM/blob/main/aa_seq_aln_a2m.tar.gz
+wget https://huggingface.co/datasets/ai4protein/VenusREM/blob/main/aa_seq_aln_a2m.tar.gz
 # unzip homology files
 tar -xzf aa_seq_aln_a2m.tar.gz
 # unzip fasta sequence files
@@ -148,7 +148,7 @@ python compute_fitness.py \
 
 ### Other Directed Evolution Tools
 
-You can use [ProtSSN (eLife 2024)](https://github.com/tyang816/ProtSSN) or [ProSST (NeurIPS 2024)](https://github.com/ai4protein/ProSST).
+You can use [ProtSSN (eLife 2024)](https://github.com/ai4protein/ProtSSN) or [ProSST (NeurIPS 2024)](https://github.com/ai4protein/ProSST).
 
 ### Questions
 
