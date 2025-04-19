@@ -8,6 +8,7 @@
 
 ### News
 
+- [2025.04.19] We rank 1st in the [ProteinGym](https://protein-gym.ai4protein.org/) substitution leaderboard!
 - [2025.04.09] Congratulations! Our paper was accepted by *ISMB/ECCB 2025*! See you in Liverpool, England.
 
 ### Downloads
