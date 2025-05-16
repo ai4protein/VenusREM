@@ -182,3 +182,7 @@ Please cite our work if you have used our code or data.
   year={2024}
 }
 ```
+
+## 📝 License
+
+This project is licensed under the terms of the [CC-BY-NC-ND-4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode) license.
