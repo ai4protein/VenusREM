@@ -13,8 +13,8 @@
 
 ### Downloads
 
-- ProteinGym a2m homology sequences (EVCouplings): https://huggingface.co/datasets/ai4protein/VenusREM/blob/main/aa_seq_aln_a2m.tar.gz. The original a2m files are downloaded at [ProteinGym](https://github.com/OATML-Markslab/ProteinGym).
-- ProteinGym a3m homology sequences (ColabFold): https://huggingface.co/datasets/ai4protein/VenusREM/blob/main/aa_seq_aln_a3m.tar.gz
+- ProteinGym a2m homology sequences (EVCouplings): https://huggingface.co/datasets/AI4Protein/VenusREM/resolve/main/aa_seq_aln_a2m.tar.gz. The original a2m files are downloaded at [ProteinGym](https://github.com/OATML-Markslab/ProteinGym).
+- ProteinGym a3m homology sequences (ColabFold): https://huggingface.co/datasets/AI4Protein/VenusREM/resolve/main/aa_seq_aln_a3m.tar.gz
 - Uniref 100 database: https://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref100/uniref100.fasta.gz
 
 ### Paper Results
@@ -57,7 +57,7 @@ make all-openmp
 #### Prepare for the processed data
 ```shell
 cd data/proteingym_v1
-wget https://huggingface.co/datasets/ai4protein/VenusREM/blob/main/aa_seq_aln_a2m.tar.gz
+wget https://huggingface.co/datasets/AI4Protein/VenusREM/resolve/main/aa_seq_aln_a2m.tar.gz
 # unzip homology files
 tar -xzf aa_seq_aln_a2m.tar.gz
 # unzip fasta sequence files
@@ -81,6 +81,16 @@ python compute_fitness.py \
 ### Your own dataset
 
 #### What you need at least
+If you don't have the substitution files, you can use the following command to generate them. It will generate the csv file with all 0 scores for all single mutants.
+```shell
+python src/data/get_sav.py \
+    --fasta_file data/$protein_dir/$protein_name.fasta \
+    --out_dir data/$protein_dir/substitutions
+```
+
+⚠ Please make sure all your protein names are the same as the original protein names in the original fasta files.
+You should have the following directory structure.
+
 ```shell
 data/<your_protein_dir_name>
 |——aa_seq # amino acid sequences
