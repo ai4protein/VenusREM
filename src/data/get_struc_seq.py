@@ -10,7 +10,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("--pdb_dir", type=str, default=None, help="Directory containing PDB files",)
     parser.add_argument("--pdb_file", type=str, default=None, help="PDB file",)
-    parser.add_argument("--vocab_size", type=int, default=[20], nargs='+', help="Vocabulary size",)
+    parser.add_argument("--vocab_size", type=int, default=[2048], nargs='+', help="Vocabulary size",)
     parser.add_argument("--overwrite", action="store_true", help="Overwrite existing files",)
     parser.add_argument("--output_dir", type=str, default=None, help="Output directory",)
     args = parser.parse_args()
