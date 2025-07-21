@@ -8,6 +8,7 @@
 
 ### News
 
+- [2025.07.21] Our paper was online at [Bioinformatics](https://academic.oup.com/bioinformatics/article/41/Supplement_1/i401/8199374).
 - [2025.04.19] We rank 1st in the [ProteinGym](https://proteingym.org/benchmarks) substitution leaderboard!
 - [2025.04.09] Congratulations! Our paper was accepted by *ISMB/ECCB 2025*! See you in Liverpool, England.
 
@@ -185,11 +186,19 @@ A: ProtSSN uses modeling at the amino acid coordinate level, ProSST models on th
 Please cite our work if you have used our code or data.
 
 ```
-@article{tan2024venusrem,
-  title={Retrieval-Enhanced Mutation Mastery: Augmenting Zero-Shot Prediction of Protein Language Model},
-  author={Tan, Yang and Wang, Ruilin and Wu, Banghao and Hong, Liang and Zhou, Bingxin},
-  journal={arXiv:2410.21127},
-  year={2024}
+@article{tan2025venusrem,
+    author = {Tan, Yang and Wang, Ruilin and Wu, Banghao and Hong, Liang and Zhou, Bingxin},
+    title = {From high-throughput evaluation to wet-lab studies: advancing mutation effect prediction with a retrieval-enhanced model},
+    journal = {Bioinformatics},
+    volume = {41},
+    number = {Supplement_1},
+    pages = {i401-i409},
+    year = {2025},
+    month = {07},
+    issn = {1367-4811},
+    doi = {10.1093/bioinformatics/btaf189},
+    url = {https://doi.org/10.1093/bioinformatics/btaf189},
+    eprint = {https://academic.oup.com/bioinformatics/article-pdf/41/Supplement\_1/i401/63745466/btaf189.pdf},
 }
 ```
 
