@@ -76,6 +76,7 @@ tar -xzf substitutions.tar.gz
 protein_dir=proteingym_v1
 python compute_fitness.py \
     --base_dir data/$protein_dir \
+    --aa_seq_dir data/$protein_dir/aa_seq \
     --out_scores_dir result/$protein_dir
 ```
 
