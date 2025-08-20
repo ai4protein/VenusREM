@@ -33,7 +33,7 @@ if __name__ == '__main__':
         for result in results:
             name = result['name'].split('.')[0]
             sst_seq = result[f'{v}_sst_seq']
-            sst_seq = [str(i+3) for i in sst_seq]
+            sst_seq = [str(i) for i in sst_seq]
             with open(os.path.join(args.output_dir, str(v), name+'.fasta'), "w") as f:
                 f.write(f'>{name}\n')
                 f.write(','.join(sst_seq))
