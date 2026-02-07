@@ -1,4 +1,4 @@
-# Retrieval-Enhanced Mutation Mastery: Augmenting Zero-Shot Prediction of Protein Language Model
+# From high-throughput evaluation to wet-lab studies: advancing mutation effect prediction with a retrieval-enhanced model
 
 ## 🚀 Introduction (VenusREM)
 
