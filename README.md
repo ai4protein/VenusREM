@@ -8,6 +8,7 @@
 
 ### News
 
+- [2026.04.01] VenusREM has been integrated into [VenusFactory2](https://github.com/ai4protein/VenusFactory2). Welcome to use it! Here is the [web server](https://venusfactory.cn/playground/) and [technical report](https://arxiv.org/abs/2603.27303).
 - [2025.07.21] Our paper was online at [Bioinformatics](https://academic.oup.com/bioinformatics/article/41/Supplement_1/i401/8199374).
 - [2025.04.19] We rank 1st in the [ProteinGym](https://proteingym.org/benchmarks) substitution leaderboard!
 - [2025.04.09] Congratulations! Our paper was accepted by *ISMB/ECCB 2025*! See you in Liverpool, England.
