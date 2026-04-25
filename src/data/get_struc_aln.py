@@ -14,37 +14,37 @@ def process_pdb(pdb_file, output_dir):
         return None
     
     # submit a new job and get the ticket
-    repeat = True
-    try_times = 0
-    while repeat:
-        result = subprocess.run(
-            [
-                "curl", "-X", "POST", "-F", f"q=@{pdb_file}", 
-                "-F", "mode=3diaa", "-F", "database[]=afdb50", 
-                "-F", "database[]=afdb-proteome", "-F", "database[]=cath50", 
-                "-F", "database[]=mgnify_esm30", "-F", "database[]=pdb100", 
-                "-F", "database[]=gmgcl_id", "-F", "database[]=afdb-swissprot", 
-                "-F", "database[]=bfvd", "-F", "database[]=bfmd", 
-                "https://search.foldseek.com/api/ticket"
-            ],
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            text=True
-        )
-        try:
-            result = result.stdout
-            ticket = json.loads(result)
-            repeat = ticket['status'] != 'COMPLETE'
-        except:
-            sleep(1)
-            try_times += 1
-            print('>>> Try again for the ' + str(try_times) + ' time')
-            continue
-    print('>>> Ticket:', ticket)
-    result = get('https://search.foldseek.com/api/result/' + ticket['id'] + '/0').json()
+    # repeat = True
+    # try_times = 0
+    # while repeat:
+    #     result = subprocess.run(
+    #         [
+    #             "curl", "-X", "POST", "-F", f"q=@{pdb_file}", 
+    #             "-F", "mode=3diaa", "-F", "database[]=afdb50", 
+    #             "-F", "database[]=afdb-proteome", "-F", "database[]=cath50", 
+    #             "-F", "database[]=mgnify_esm30", "-F", "database[]=pdb100", 
+    #             "-F", "database[]=gmgcl_id", "-F", "database[]=afdb-swissprot", 
+    #             "-F", "database[]=bfvd", "-F", "database[]=bfmd", 
+    #             "https://search.foldseek.com/api/ticket"
+    #         ],
+    #         stdout=subprocess.PIPE,
+    #         stderr=subprocess.PIPE,
+    #         text=True
+    #     )
+    #     try:
+    #         result = result.stdout
+    #         ticket = json.loads(result)
+    #         repeat = ticket['status'] != 'COMPLETE'
+    #     except:
+    #         sleep(1)
+    #         try_times += 1
+    #         print('>>> Try again for the ' + str(try_times) + ' time')
+    #         continue
+    # print('>>> Ticket:', ticket)
+    # result = get('https://search.foldseek.com/api/result/' + ticket['id'] + '/0').json()
     
-    # structure_aln_dict = json.load(open(f'structure_alignment_json/{file_name}.json'))
-    structure_aln_dict = result
+    structure_aln_dict = json.load(open(f'{output_dir}/{file_name}.json'))[0]
+    # structure_aln_dict = result
     # with open('result.json', 'w') as f:
     #     json.dump(result, f)
     results = structure_aln_dict['results']
@@ -58,27 +58,30 @@ def process_pdb(pdb_file, output_dir):
     
     alignment_dict = {}
     for result_db in results:
-        if len(result_db['alignments']) == 0:
+        # alignments is a dict with string keys, each value is a list of alignment dicts
+        if not result_db['alignments'] or len(result_db['alignments']) == 0:
             continue
-        for target_info in result_db['alignments'][0]:
-            name = f"{target_info['target']}/prob_{target_info['prob']}/eval_{target_info['eval']}/score_{target_info['score']}/{target_info['qStartPos']}-{target_info['qEndPos']}"
-            qaln = target_info['qAln']
-            dbaln = target_info['dbAln']
-            try:
-                # get the index list of '-' in qaln
-                qaln = list(qaln)
-                miss_index = [i for i in range(len(qaln)) if qaln[i] == '-']
-                # remove the residues in dbaln according to the missing index list in qaln
-                dbaln = list(dbaln)
-                dbaln = ''.join([dbaln[i] for i in range(len(dbaln)) if i not in miss_index])
-            except Exception as e:
-                print(e)
-                print(name)
-            # fill '-' to the left and right of dbaln to make it the same length as query_seq
-            left = target_info['qStartPos'] - 1
-            right = len(query_seq) - target_info['qEndPos']
-            dbaln = '-' * left + dbaln + '-' * right
-            alignment_dict[name] = dbaln
+        # Iterate over all alignment lists in the alignments dict
+        for alignments_list in result_db['alignments'].values():
+            for target_info in alignments_list:
+                name = f"{target_info['target']}/prob_{target_info['prob']}/eval_{target_info['eval']}/score_{target_info['score']}/{target_info['qStartPos']}-{target_info['qEndPos']}"
+                qaln = target_info['qAln']
+                dbaln = target_info['dbAln']
+                try:
+                    # get the index list of '-' in qaln
+                    qaln = list(qaln)
+                    miss_index = [i for i in range(len(qaln)) if qaln[i] == '-']
+                    # remove the residues in dbaln according to the missing index list in qaln
+                    dbaln = list(dbaln)
+                    dbaln = ''.join([dbaln[i] for i in range(len(dbaln)) if i not in miss_index])
+                except Exception as e:
+                    print(e)
+                    print(name)
+                # fill '-' to the left and right of dbaln to make it the same length as query_seq
+                left = target_info['qStartPos'] - 1
+                right = len(query_seq) - target_info['qEndPos']
+                dbaln = '-' * left + dbaln + '-' * right
+                alignment_dict[name] = dbaln
 
     
     if alignment_dict == {}:
