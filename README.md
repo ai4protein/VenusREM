@@ -8,6 +8,7 @@
 
 ### News
 
+- [2026.09.30] VenusREM2 achieves **0.556** on ProteinGym substitution leaderboard by [VenusREM-Harness](https://github.com/ai4protein/VenusREM-Harness). Plz see [technical report](https://arxiv.org/abs/2609.34654).
 - [2026.04.01] VenusREM has been integrated into [VenusFactory2](https://github.com/ai4protein/VenusFactory2). Welcome to use it! Here is the [web server](https://venusfactory.cn/playground/) and [technical report](https://arxiv.org/abs/2603.27303).
 - [2025.07.21] Our paper was online at [Bioinformatics](https://academic.oup.com/bioinformatics/article/41/Supplement_1/i401/8199374).
 - [2025.04.19] We rank 1st in the [ProteinGym](https://proteingym.org/benchmarks) substitution leaderboard!
